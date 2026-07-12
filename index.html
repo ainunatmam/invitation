@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Undangan Syukuran Khitanan Razka & Jati</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+
+    <style>
+        /* CSS Variables for Theme */
+        :root {
+            --color-primary: #1a365d; /* Royal Deep Navy */
+            --color-primary-light: #2b6cb0; /* Premium Slate Blue */
+            --color-secondary: #c5a880; /* Elegant Warm Gold */
+            --color-secondary-light: #e8e0d5; /* Soft Champagne Gold */
+            --color-background: #f4f7f9; /* Off-White Ice Blue */
+            --color-surface: #ffffff;
+            --color-text: #1e293b; /* Slate Dark */
+            --color-text-muted: #475569; /* Slate Muted */
+            --font-headline: 'Libre Caslon Text', Georgia, serif;
+            --font-body: 'Hanken Grotesk', sans-serif;
+            --shadow-sm: 0 2px 8px rgba(26, 54, 93, 0.05);
+            --shadow-md: 0 8px 24px rgba(26, 54, 93, 0.08);
+            --shadow-lg: 0 16px 40px rgba(26, 54, 93, 0.12);
+            --border-radius-sm: 8px;
+            --border-radius-md: 16px;
+            --border-radius-lg: 24px;
+        }
+
+        /* General Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: #0f172a; /* Dark background to frame the mobile mockup on desktop */
+            color: var(--color-text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Mobile Viewport Mockup (Desktop Frame) */
+        .phone-frame {
+            width: 100%;
+            max-width: 450px;
+            height: 100vh;
+            background-color: var(--color-background);
+            position: relative;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border-left: 1px solid rgba(197, 168, 128, 0.2);
+            border-right: 1px solid rgba(197, 168, 128, 0.2);
+        }
+
+        @media (min-width: 451px) {
+            .phone-frame {
+                height: 92vh;
+                border-radius: 40px;
+                border: 12px solid #1e293b;
+                outline: 2px solid rgba(197, 168, 128, 0.4);
+            }
+        }
+
+        /* Scroll Snapping Container */
+        .scroll-container {
+            flex: 1;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Hide scrollbar for Firefox */
+        }
+
+        .scroll-container::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for Chrome, Safari and Opera */
+        }
+
+        section {
+            width: 100%;
+            height: 100%;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            position: relative;
+            overflow-y: auto;
+            padding: 80px 24px 100px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-background);
+            background-image: radial-gradient(var(--color-secondary-light) 0.5px, transparent 0.5px), radial-gradient(var(--color-secondary-light) 0.5px, var(--color-background) 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+        }
+
+        /* Decorative Paper Grain Overlay */
+        .paper-grain {
+            position: absolute;
+            inset: 0;
+            opacity: 0.03;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Cfilter id='noise'%3%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            z-index: 10;
+        }
+
+        /* Elegant Floral Frame Borders */
+        .section-frame {
+            position: absolute;
+            inset: 16px;
+            border: 1px solid rgba(197, 168, 128, 0.3);
+            pointer-events: none;
+            z-index: 5;
+            border-radius: var(--border-radius-md);
+        }
+
+        .section-frame::before {
+            content: '';
+            position: absolute;
+            inset: 4px;
+            border: 1px solid rgba(197, 168, 128, 0.15);
+            border-radius: calc(var(--border-radius-md) - 4px);
+        }
+
+        /* Welcome/Cover Overlay */
+        .cover-overlay {
+            position: absolute;
+            inset: 0;
+            background-color: var(--color-background);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 32px;
+            text-align: center;
+            transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
+            background-image: radial-gradient(var(--color-secondary-light) 0.5px, transparent 0.5px), radial-gradient(var(--color-secondary-light) 0.5px, var(--color-background) 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+        }
+
+        .cover-overlay.fade-out {
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Top Bar */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(244, 247, 249, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(197, 168, 128, 0.15);
+            z-index: 90;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .phone-frame.unlocked header {
+            opacity: 1;
+        }
+
+        .logo-text {
+            font-family: var(--font-headline);
+            font-size: 1.1rem;
+            color: var(--color-primary);
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Floating Audio Toggle */
+        .music-player {
+            position: absolute;
+            bottom: 80px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: var(--color-primary);
+            color: var(--color-background);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            z-index: 95;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid var(--color-secondary);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .phone-frame.unlocked .music-player {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .music-player:hover {
+            transform: scale(1.1);
+        }
+
+        .music-player.playing span {
+            animation: spin 4s linear infinite;
+        }
+
+        /* Typography Styles */
+        h1, h2, h3, h4 {
+            font-family: var(--font-headline);
+            color: var(--color-primary);
+            text-align: center;
+        }
+
+        .arabic-text {
+            font-family: var(--font-headline);
+            font-size: 1.8rem;
+            margin: 12px 0;
+            color: var(--color-primary);
+            direction: rtl;
+        }
+
+        .sub-label {
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            color: var(--color-secondary);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        p {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--color-text-muted);
+            text-align: center;
+        }
+
+        .divider-ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 16px 0;
+            width: 100%;
+        }
+
+        .divider-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--color-secondary), transparent);
+            flex: 1;
+            max-width: 60px;
+        }
+
+        .divider-ornament span {
+            color: var(--color-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Button Custom Styles */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background-color: var(--color-primary);
+            color: var(--color-background);
+            border: 1px solid var(--color-secondary);
+            border-radius: 50px;
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-primary-light);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            color: var(--color-primary);
+            border: 1px solid rgba(197, 168, 128, 0.4);
+            border-radius: var(--border-radius-sm);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            width: 100%;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-surface);
+            border-color: var(--color-secondary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Guest Box Container */
+        .guest-box {
+            background-color: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(197, 168, 128, 0.25);
+            border-radius: var(--border-radius-md);
+            padding: 20px;
+            margin: 24px 0;
+            width: 100%;
+            max-width: 320px;
+            backdrop-filter: blur(5px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .guest-name-text {
+            font-family: var(--font-headline);
+            font-size: 1.3rem;
+            color: var(--color-primary);
+            font-weight: bold;
+            margin: 8px 0;
+        }
+
+        /* Welcome Cover animations */
+        .pulse-ring {
+            position: relative;
+        }
+        
+        .pulse-ring::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50px;
+            border: 1px solid var(--color-secondary);
+            opacity: 0.8;
+            animation: pulse 2s cubic-bezier(0.215, 0.610, 0.355, 1) infinite;
+            pointer-events: none;
+        }
+
+        /* SECTION 1: HERO & HONOREES */
+        .hero-photo-wrapper {
+            position: relative;
+            width: 160px;
+            height: 210px;
+            margin: 20px 0;
+            border-radius: 100px 100px 8px 8px; /* Arch structure */
+            overflow: hidden;
+            border: 3px solid var(--color-secondary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .hero-photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: sepia(0.2) contrast(1.05);
+            transition: transform 0.5s ease;
+        }
+
+        .hero-photo-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        .honorees-container {
+            width: 100%;
+            max-width: 320px;
+            margin-top: 10px;
+        }
+
+        .honoree-card {
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: var(--border-radius-md);
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid rgba(197, 168, 128, 0.15);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+        }
+
+        .honoree-photo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--color-secondary);
+            margin: 0 auto 8px auto;
+            display: block;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .honoree-card h2 {
+            font-size: 1.4rem;
+            margin-bottom: 2px;
+        }
+
+        .honoree-parent {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-text-muted);
+            font-weight: 500;
+        }
+
+        .heart-badge {
+            display: inline-flex;
+            align-content: center;
+            justify-content: center;
+            padding: 4px 12px;
+            border-radius: 20px;
+            background-color: rgba(197, 168, 128, 0.1);
+            color: var(--color-secondary);
+            margin: 4px 0;
+        }
+
+        .heart-badge span {
+            font-size: 1.1rem;
+            animation: heartbeat 2s infinite;
+        }
+
+        /* SECTION 2: DATE & TIME */
+        .info-card {
+            background-color: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(166, 144, 118, 0.3);
+            border-radius: var(--border-radius-lg);
+            padding: 32px 24px;
+            width: 100%;
+            max-width: 340px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            position: relative;
+        }
+
+        .calendar-icon-outer {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: rgba(39, 46, 32, 0.05);
+            border: 1px solid rgba(166, 144, 118, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px auto;
+            color: var(--color-primary);
+        }
+
+        .calendar-date-big {
+            font-family: var(--font-headline);
+            font-size: 2.2rem;
+            color: var(--color-primary);
+            font-weight: bold;
+            margin: 10px 0;
+            line-height: 1.2;
+        }
+
+        .calendar-time-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 12px;
+            color: var(--color-text-muted);
+            font-weight: 500;
+        }
+
+        /* SECTION 3: LOCATION & MAP */
+        .venue-icon-outer {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background-color: var(--color-primary);
+            color: var(--color-background);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px auto;
+            transform: rotate(45deg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .venue-icon-outer span {
+            transform: rotate(-45deg);
+        }
+
+        .map-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+            margin: 20px 0;
+            border: 2px solid var(--color-secondary-light);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .map-mockup {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #e4e2dd, #d2d0cb);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--color-text-muted);
+            padding: 16px;
+        }
+
+        .map-mockup span {
+            font-size: 2.5rem;
+            color: var(--color-secondary);
+            margin-bottom: 8px;
+            animation: bounce 2s infinite;
+        }
+
+        .map-mockup p {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* Gallery Section Styles */
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .gallery-active-photo {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+            border: 2px solid var(--color-secondary-light);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .gallery-active-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-thumbnails {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+        }
+
+        .gallery-thumbnails img {
+            width: 60px;
+            height: 65px;
+            object-fit: cover;
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+
+        .gallery-thumbnails img:hover {
+            opacity: 1;
+        }
+
+        .gallery-thumbnails img.active {
+            border-color: var(--color-secondary);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            background-color: rgba(251, 249, 244, 0.9);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(197, 168, 128, 0.2);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 90;
+            padding-bottom: env(safe-area-inset-bottom);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+
+        .phone-frame.unlocked nav {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-muted);
+            text-decoration: none;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            flex: 1;
+            height: 100%;
+        }
+
+        .nav-link span {
+            font-size: 1.3rem;
+            margin-bottom: 3px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link.active {
+            color: var(--color-primary);
+        }
+
+        .nav-link.active span {
+            transform: translateY(-2px);
+            font-variation-settings: 'FILL' 1;
+        }
+
+        /* Scroll Animation Entrance Classes */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.215, 0.610, 0.355, 1), transform 0.8s cubic-bezier(0.215, 0.610, 0.355, 1);
+        }
+
+        .visible .animate-on-scroll {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.15s; }
+        .delay-2 { transition-delay: 0.3s; }
+        .delay-3 { transition-delay: 0.45s; }
+        .delay-4 { transition-delay: 0.6s; }
+
+        /* Animation Keyframes */
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1.0); opacity: 0.8; }
+            100% { transform: scale(1.15); opacity: 0; }
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.15); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.15); }
+            70% { transform: scale(1); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(-45deg); }
+            40% { transform: translateY(-8px) rotate(-45deg); }
+            60% { transform: translateY(-4px) rotate(-45deg); }
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="phone-frame" id="phone-wrapper">
+        <div class="paper-grain"></div>
+
+        <!-- Cover/Welcome Screen (Autoplay Music Bypasser) -->
+        <div class="cover-overlay" id="cover-overlay">
+            <div class="section-frame"></div>
+            <span class="sub-label">Undangan Syukuran Khitanan</span>
+            <div class="divider-ornament">
+                <div class="divider-line"></div>
+                <span class="material-symbols-outlined">auto_stories</span>
+                <div class="divider-line"></div>
+            </div>
+            <h1 style="font-size: 2.2rem; line-height: 1.2; margin-bottom: 8px;">Razka & Jati</h1>
+            
+            <div class="guest-box" id="guest-name-wrapper">
+                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Kepada Yth. Bapak/Buku/Saudara/i:</p>
+                <div class="guest-name-text" id="guest-name">Nama Tamu</div>
+                <p style="font-size: 0.75rem; color: var(--color-text-muted); font-style: italic;">*Tanpa Mengurangi Rasa Hormat</p>
+            </div>
+
+            <div class="pulse-ring">
+                <button class="btn-primary" id="btn-open-invitation">
+                    <span class="material-symbols-outlined">mail</span>
+                    Buka Undangan
+                </button>
+            </div>
+        </div>
+
+        <!-- Sticky Header (Visible after opening) -->
+        <!-- <header>
+            <span class="logo-text">Razka & Jati</span>
+            <span class="material-symbols-outlined" style="color: var(--color-primary);">spa</span>
+        </header> -->
+
+        <!-- Floating Background Music Widget -->
+        <div class="music-player" id="music-toggle" title="Play/Pause Music">
+            <span class="material-symbols-outlined" id="music-icon" style="font-variation-settings: 'FILL' 1;">music_off</span>
+        </div>
+
+        <!-- Audio Tag -->
+        <audio id="bg-music" loop preload="auto">
+            <source src="https://files.freemusicarchive.org/storage-tokyo/music/ccCommunity/Kai_Engel/Midnight_Midnight/Kai_Engel_-_08_-_Midnight_Theme.mp3" type="audio/mpeg">
+            Browser Anda tidak mendukung elemen audio.
+        </audio>
+
+        <!-- Scroll Sections -->
+        <div class="scroll-container" id="scroll-container">
+            
+            <!-- Section 1: Hero & Honorees -->
+            <section id="hero">
+                <div class="section-frame"></div>
+                
+                <span class="sub-label animate-on-scroll">Syukuran Khitanan</span>
+                <div class="arabic-text animate-on-scroll delay-1">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+                
+                <p class="animate-on-scroll delay-1" style="font-style: italic; max-width: 320px; font-size: 0.85rem; margin-bottom: 12px;">
+                    "Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri syukuran khitanan putra kami:"
+                </p>
+
+                <!-- Hero Photo container with custom frame -->
+                <div class="hero-photo-wrapper animate-on-scroll delay-2">
+                    <img alt="Razka & Jati" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdIKw_eMZEZT2vhu0EQ6pGnSgWU6KKa91vAQKuxx2sCMZSA-tP2Oh-9SIOFNF069cZQUMB_HUhDoOOXPs2RT-APq12Z199JQdcEz9FzGplmC6WE2xXR1sjnZTP3Ff9Howvd1-7fcTXyYgtDseV7YYScPOUcCrf4WcY8Jx3oW3NgPvTxez9muulapBitLNLfnx-eH-mZL0MC54FjYwHqcF5CCGA1UDdoI9FeYlroBsxPBDa31Wmk4UBpw1x5XH2KvFWTlQ8ZTS1cvA">
+                </div>
+
+                <div class="honorees-container animate-on-scroll delay-3">
+                    <div class="honoree-card">
+                        <img src="razka.webp" alt="Razka" class="honoree-photo">
+                        <h2>Razka</h2>
+                        <div class="honoree-parent">Putra dari Bp. & Ibu Taufik Zukhan</div>
+                    </div>
+                    
+                    <div style="width: 100%;">
+                        <h2 style="text-align: center;">&</h2>
+                    </div>
+
+                    <div class="honoree-card">
+                        <img src="jati.webp" alt="Jati" class="honoree-photo">
+                        <h2>Jati</h2>
+                        <div class="honoree-parent">Putra dari Bp. & Ibu </div>
+                    </div>
+                </div>
+
+                <p class="animate-on-scroll delay-4" style="font-style: italic; font-size: 0.8rem; margin-top: 16px; max-width: 280px; font-weight: 500;">
+                    "Semoga menjadi anak yang berbakti kepada orang tua, bangsa dan negara."
+                </p>
+            </section>
+
+            <!-- Section 2: Date & Time -->
+            <section id="details">
+                <div class="section-frame"></div>
+                
+                <span class="sub-label animate-on-scroll">Waktu & Acara</span>
+                <h1 class="animate-on-scroll delay-1" style="font-size: 1.8rem; margin-bottom: 20px;">Penyelenggaraan</h1>
+                
+                <div class="info-card animate-on-scroll delay-2">
+                    <div class="calendar-icon-outer">
+                        <span class="material-symbols-outlined" style="font-size: 2rem;">calendar_today</span>
+                    </div>
+                    
+                    <span class="sub-label" style="letter-spacing: 2px;">Sabtu</span>
+                    <div class="calendar-date-big">11 Juli 2026</div>
+                    
+                    <div class="divider-ornament" style="margin: 8px 0;">
+                        <div class="divider-line"></div>
+                        <span class="material-symbols-outlined" style="font-size: 0.8rem;">circle</span>
+                        <div class="divider-line"></div>
+                    </div>
+
+                    <div class="calendar-time-group">
+                        <span class="material-symbols-outlined" style="font-size: 1.1rem;">schedule</span>
+                        <span>Pukul 11.00 WIB — Selesai </span>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Section 3: Location & Map -->
+            <section id="location">
+                <div class="section-frame"></div>
+                
+                <span class="sub-label animate-on-scroll">Lokasi Acara</span>
+                <h1 class="animate-on-scroll delay-1" style="font-size: 1.8rem; margin-bottom: 20px;">Tempat Pertemuan</h1>
+
+                <div class="info-card animate-on-scroll delay-2" style="padding: 24px 20px;">
+                    
+
+                    <img src="rumahku.jpg" alt="">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 4px;">RumahKu Masakan Indonesia</h3>
+                    <p style="font-size: 0.85rem; max-width: 240px; margin: 0 auto 16px auto;">Jalan Muhammad Husni Thamrin Blok FG12 No.43, Pondok Jaya, Pondok Aren, South Tangerang City, Banten 15222</p>
+
+                    <img src="https://instagram.fcgk33-1.fna.fbcdn.net/v/t51.2885-19/103047977_619007972045952_2270481616130277532_n.jpg?stp=dst-jpg_s320x320_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.fcgk33-1.fna.fbcdn.net&_nc_cat=100&_nc_oc=Q6cZ2gGql_ARxoXn35rB3wBv394lCplt1xIP1M-D9SMqU_hqxzKK0kIdk3daqs_j1pyElGQIB86b6fsIfpvXDVaR_K4H&_nc_ohc=Atk4uQ11vT0Q7kNvwGu8Yxg&_nc_gid=V9651Wjg-NXuCGvF5BUUHA&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AQA8jYGalMg9Yogn4CEea7P9d02IK3X4PNJU5GQoVjOGGA&oe=6A597FF5&_nc_sid=8b3546" alt="">
+
+                    <a class="btn-secondary" href="" target="_blank">
+                        <span>Buka Google Maps</span>
+                        <span class="material-symbols-outlined" style="font-size: 1.1rem;">open_in_new</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Section 4: Galeri Foto -->
+            <!-- <section id="gallery">
+                <div class="section-frame"></div>
+
+                <span class="sub-label animate-on-scroll">Kenangan Indah</span>
+                <h1 class="animate-on-scroll delay-1" style="font-size: 1.8rem; margin-bottom: 20px;">Galeri Foto</h1>
+
+                <div class="info-card animate-on-scroll delay-2" style="padding: 20px 16px; max-width: 350px;">
+                    <div class="gallery-container">
+                        <div class="gallery-active-photo">
+                            <img id="gallery-main" src="gallery1.png" alt="Galeri Foto">
+                        </div>
+                        <div class="gallery-thumbnails">
+                            <img class="thumbnail active" src="gallery1.png" alt="Thumbnail 1" onclick="changeGalleryImage('gallery1.png', this)">
+                            <img class="thumbnail" src="gallery2.png" alt="Thumbnail 2" onclick="changeGalleryImage('gallery2.png', this)">
+                            <img class="thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdIKw_eMZEZT2vhu0EQ6pGnSgWU6KKa91vAQKuxx2sCMZSA-tP2Oh-9SIOFNF069cZQUMB_HUhDoOOXPs2RT-APq12Z199JQdcEz9FzGplmC6WE2xXR1sjnZTP3Ff9Howvd1-7fcTXyYgtDseV7YYScPOUcCrf4WcY8Jx3oW3NgPvTxez9muulapBitLNLfnx-eH-mZL0MC54FjYwHqcF5CCGA1UDdoI9FeYlroBsxPBDa31Wmk4UBpw1x5XH2KvFWTlQ8ZTS1cvA" alt="Thumbnail 3" onclick="changeGalleryImage('https://lh3.googleusercontent.com/aida-public/AB6AXuAdIKw_eMZEZT2vhu0EQ6pGnSgWU6KKa91vAQKuxx2sCMZSA-tP2Oh-9SIOFNF069cZQUMB_HUhDoOOXPs2RT-APq12Z199JQdcEz9FzGplmC6WE2xXR1sjnZTP3Ff9Howvd1-7fcTXyYgtDseV7YYScPOUcCrf4WcY8Jx3oW3NgPvTxez9muulapBitLNLfnx-eH-mZL0MC54FjYwHqcF5CCGA1UDdoI9FeYlroBsxPBDa31Wmk4UBpw1x5XH2KvFWTlQ8ZTS1cvA', this)">
+                        </div>
+                    </div>
+                </div>
+            </section> -->
+
+        </div>
+
+        <!-- Sticky Footer Navigation Bar -->
+        <nav id="footer-nav">
+            <a href="#hero" class="nav-link active" data-target="hero">
+                <span class="material-symbols-outlined">home</span>
+                Beranda
+            </a>
+            <a href="#details" class="nav-link" data-target="details">
+                <span class="material-symbols-outlined">calendar_month</span>
+                Acara
+            </a>
+            <a href="#location" class="nav-link" data-target="location">
+                <span class="material-symbols-outlined">pin_drop</span>
+                Lokasi
+            </a>
+            <!-- <a href="#gallery" class="nav-link" data-target="gallery">
+                <span class="material-symbols-outlined">photo_library</span>
+                Galeri
+            </a> -->
+        </nav>
+
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cover = document.getElementById('cover-overlay');
+            const btnOpen = document.getElementById('btn-open-invitation');
+            const phoneWrapper = document.getElementById('phone-wrapper');
+            const audio = document.getElementById('bg-music');
+            const musicToggle = document.getElementById('music-toggle');
+            const musicIcon = document.getElementById('music-icon');
+            const scrollContainer = document.getElementById('scroll-container');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+
+            // 1. Guest Name URL query parameter parsing (?to=Nama+Tamu)
+            const urlParams = new URLSearchParams(window.location.search);
+            const guestName = urlParams.get('to');
+            if (guestName) {
+                const guestNameElem = document.getElementById('guest-name');
+                if (guestNameElem) guestNameElem.innerText = guestName;
+            } else {
+                const wrapperElem = document.getElementById('guest-name-wrapper');
+                if (wrapperElem) wrapperElem.style.display = 'none';
+            }
+
+            // 2. Open Invitation Logic
+            btnOpen.addEventListener('click', () => {
+                cover.classList.add('fade-out');
+                phoneWrapper.classList.add('unlocked');
+                
+                // Play music upon user interaction (bypasses autoplay restriction)
+                playAudio();
+
+                // Trigger animation for the first section
+                setTimeout(() => {
+                    sections[0].classList.add('visible');
+                }, 400);
+            });
+
+            // 3. Audio Player Logic
+            function playAudio() {
+                audio.play().then(() => {
+                    musicToggle.classList.add('playing');
+                    musicIcon.innerText = 'music_note';
+                }).catch(err => {
+                    console.log('Audio autoplay prevented or error occurred', err);
+                });
+            }
+
+            function toggleAudio() {
+                if (audio.paused) {
+                    audio.play();
+                    musicToggle.classList.add('playing');
+                    musicIcon.innerText = 'music_note';
+                } else {
+                    audio.pause();
+                    musicToggle.classList.remove('playing');
+                    musicIcon.innerText = 'music_off';
+                }
+            }
+
+            musicToggle.addEventListener('click', toggleAudio);
+
+            // 4. Scroll Snap Active Link & Entry Animations Intersection Observer
+            const observerOptions = {
+                root: scrollContainer,
+                threshold: 0.5
+            };
+
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const activeId = entry.target.id;
+                        
+                        // Add visibility class for transition animations
+                        entry.target.classList.add('visible');
+
+                        // Update Navigation Active State
+                        navLinks.forEach(link => {
+                            if (link.getAttribute('href') === `#${activeId}`) {
+                                link.classList.add('active');
+                            } else {
+                                link.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+
+            // Handle navigation clicks smoothly
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // 5. Gallery Image Switcher
+            window.changeGalleryImage = function(src, thumbnailElement) {
+                const mainImg = document.getElementById('gallery-main');
+                if (mainImg) {
+                    mainImg.style.opacity = 0;
+                    setTimeout(() => {
+                        mainImg.src = src;
+                        mainImg.style.opacity = 1;
+                    }, 200);
+                }
+                
+                // Update active class on thumbnails
+                const thumbnails = document.querySelectorAll('.gallery-thumbnails img');
+                thumbnails.forEach(thumb => thumb.classList.remove('active'));
+                thumbnailElement.classList.add('active');
+            };
+        });
+    </script>
+</body>
+</html>
